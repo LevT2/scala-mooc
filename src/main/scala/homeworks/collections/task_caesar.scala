@@ -1,8 +1,11 @@
 package homeworks.collections
 
-import homeworks.HomeworksUtils.TaskSyntax
+//import homeworks.HomeworksUtils.TaskSyntax
 
 object task_caesar {
+
+  def charToInt(c: Char): Int = c - 'A'
+  def intToChar(i: Int): Char = ('A' + (i % 26)).toChar
 
   /**
    * В данном задании Вам предлагается реализовать функции,
@@ -17,15 +20,22 @@ object task_caesar {
    * @param offset сдвиг вперёд по алфавиту
    * @return зашифрованное слово
    */
-  def encrypt(word: String, offset: Int): String =
-    task"Реализуйте метод `encrypt`"()
+  def encrypt(word: String, offset: Int): String = {
+//    task"Реализуйте метод `encrypt`"()
+    word.map(charToInt)
+      .map(_ + (offset % 26))
+      .map(intToChar).mkString
+  }
 
   /**
    * @param cipher шифр, который необходимо расшифровать
    * @param offset сдвиг вперёд по алфавиту
    * @return расшифрованное слово
    */
-  def decrypt(cipher: String, offset: Int): String =
-    task"Реализуйте метод `decrypt`"()
-
+  def decrypt(cipher: String, offset: Int): String = {
+//    task"Реализуйте метод `decrypt`"()
+    cipher.map(charToInt)
+      .map(_ + 26 - (offset % 26))
+      .map(intToChar).mkString
+  }
 }
