@@ -11,8 +11,11 @@ class seq_riddle_test extends AnyFlatSpec {
     assert(nextLine(List(3, 1, 2, 2, 1, 1)) === List(1, 3, 1, 1, 2, 2, 2, 1))
   }
 
-  "funSeq" should "produce next line" in {
-    assert(task_seq_riddle.funSeq(5) === List(3, 1, 2, 2, 1, 1))
-  }
+  //  "funSeq" should "produce next line" in {
+  //    assert(task_seq_riddle.funSeq(5) === List(3, 1, 2, 2, 1, 1))
+  //  }
 
+  "funSeq" should "produce next line" in {
+    assert(task_seq_riddle.select(5) === List(3, 1, 2, 2, 1, 1))
+  }
 }
